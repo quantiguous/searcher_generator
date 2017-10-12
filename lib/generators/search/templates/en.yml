@@ -1,0 +1,22 @@
+en:
+  activerecord:
+    models:
+      <%= model_name.underscore %>: "<%=model_name%>"
+    attributes:
+      <%= model_name.underscore %>: &attributes
+<% get_attributes.each do |attr| -%>
+<% if attr[0].include?("approval_status@") or attr[0].include?("page@")-%>
+<% elsif attr[0].include?("e$") -%>
+        <%=attr[0].chomp('e$')%>:  "<%= attr[1]%>"
+<% elsif attr[0].include?("bet1") -%>
+        <%=attr[0].chomp('bet1')%>:  "<%= attr[1]%>"
+<% else -%>
+        <%=attr[0]%>:  "<%= attr[1]%>"
+<% end -%>
+<% end -%>
+  activemodel:
+    models:
+      <%= model_name.underscore %>_searcher: '<%=model_name%>'
+    attributes:
+      <%= model_name.underscore %>_searcher:
+        <<: *attributes

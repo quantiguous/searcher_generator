@@ -1,0 +1,26 @@
+Description:
+    Searcher Generator 
+
+Example:
+    rails generate search FtPurgeSafTransfer from_req_timestampbet1:"From Request Timestamp" 
+
+    This will create:
+        1-  searcher class 'FtPurgeSafTransferSearcher'
+        2-  advanced_search partial for 'FtPurgeSafTransferSearcher'
+        3- insert method search_params method
+        4- en.yml file
+        
+    rules you have to follow for this generator- 
+      1-  add these word to your attribute for giving different functionality -
+        (i) bet1 - it will create "from attribute" and "to attribute"
+        (ii) bet$ - it will create "from attribute" and "to attribute" as datetime type
+        (iii) e$  -  it will create enum type attribute
+        (iv) approval_status@ - it will create approval_status attribute
+        (v) page@ - it will create page attribute
+     
+     Things to do after running this command 
+        1- changes in routes file 
+        2- changes in controller method 'index'
+        
+        
+        

@@ -1,0 +1,16 @@
+= search_form_for @searcher do |f|
+  = f.standard_fields
+<% attributes.each do |attr|-%>
+<% if attr[0].include?("approval_status@") or attr[0].include?("page@")-%>
+<% elsif attr[0].include?("e$") -%>
+  = f.input :<%=attr[0].chomp('e$')%>, as: :enum
+<% elsif attr[0].include?("bet1") -%>
+  = f.input :<%=attr[0].chomp('bet1')%>, as: :between
+<% elsif attr[0].include?("bet$") -%>
+  = f.input :<%=attr[0].chomp('bet$')%>, as: :between
+<% else -%>
+  = f.input :<%=attr[0]%>
+<% end -%>
+<%end-%>
+  = f.action_buttons
+= pagination_links(@records)
