@@ -8,6 +8,8 @@ en:
 <% if attr[0].include?("approval_status@") or attr[0].include?("page@")or attr[0].include?("humanize_model@")-%>
 <% elsif attr[0].include?("e$") -%>
         <%=attr[0].chomp('e$')%>:  "<%= attr[1]%>"
+<% elsif attr[0].include?("bet$") -%>
+        <%=attr[0].chomp('bet$')%>:  "<%= attr[1]%>"
 <% elsif attr[0].include?("bet1") -%>
         <%=attr[0].chomp('bet1')%>:  "<%= attr[1]%>"
 <% else -%>
