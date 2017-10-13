@@ -45,7 +45,8 @@ class SearchGenerator < Rails::Generators::Base
   def symbolize_attribute
     f = ""
     get_attributes.each do |k, v|
-      if k.include?("bet1")
+      if k.include?("humanize_model@")
+      elsif k.include?("bet1")
         k = k.chomp("bet1")
         f = f + ":from_#{k}, "
         f = f + ":to_#{k}, "

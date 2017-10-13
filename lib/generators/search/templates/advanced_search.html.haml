@@ -1,7 +1,7 @@
 = search_form_for @searcher do |f|
   = f.standard_fields
 <% attributes.each do |attr|-%>
-<% if attr[0].include?("approval_status@") or attr[0].include?("page@")-%>
+<% if attr[0].include?("approval_status@") or attr[0].include?("page@") or attr[0].include?("humanize_model@")-%>
 <% elsif attr[0].include?("e$") -%>
   = f.input :<%=attr[0].chomp('e$')%>, as: :enum
 <% elsif attr[0].include?("bet1") -%>

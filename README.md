@@ -18,7 +18,7 @@ Or install it yourself as:
 
 ## Usage
 
-    rails generate search <ModelName> atrribute:"attribute humanize name" 
+    rails generate search <ModelName> atrribute:"attribute humanize name" humanize_model@:<model humanize name>
 
     This will create:
         1-  searcher class '<ModelSearcher>'
@@ -33,6 +33,7 @@ Or install it yourself as:
         (iii) e$  -  it will create enum type attribute
         (iv) approval_status@ - it will create approval_status attribute
         (v) page@ - it will create page attribute
+        (vi) humanize_model@ - it will add humanize model name
      
      Things to do after running this command 
         1- changes in routes file 
