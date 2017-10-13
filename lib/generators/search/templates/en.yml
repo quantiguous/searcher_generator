@@ -1,11 +1,11 @@
 en:
   activerecord:
     models:
-      <%= model_name.underscore %>: "<%=model_name%>"
+      <%= model_name.underscore %>: "<%=get_attributes["humanize_model@"]%>"
     attributes:
       <%= model_name.underscore %>: &attributes
 <% get_attributes.each do |attr| -%>
-<% if attr[0].include?("approval_status@") or attr[0].include?("page@")-%>
+<% if attr[0].include?("approval_status@") or attr[0].include?("page@")or attr[0].include?("humanize_model@")-%>
 <% elsif attr[0].include?("e$") -%>
         <%=attr[0].chomp('e$')%>:  "<%= attr[1]%>"
 <% elsif attr[0].include?("bet1") -%>
@@ -16,7 +16,7 @@ en:
 <% end -%>
   activemodel:
     models:
-      <%= model_name.underscore %>_searcher: '<%=model_name%>'
+      <%= model_name.underscore %>_searcher: '<%=get_attributes["humanize_model@"]%>'
     attributes:
       <%= model_name.underscore %>_searcher:
         <<: *attributes
