@@ -1,4 +1,4 @@
-= search_form_for @searcher do |f|
+= search_form_for @searcher, {defaults: local_assigns[:defaults]} do |f|
   = f.standard_fields
 <% attributes.each do |attr|-%>
 <% if attr[0].include?("approval_status@") or attr[0].include?("page@") or attr[0].include?("humanize_model@")-%>
@@ -8,6 +8,8 @@
   = f.input :<%=attr[0].chomp('bet1')%>, as: :between
 <% elsif attr[0].include?("bet$") -%>
   = f.input :<%=attr[0].chomp('bet$')%>, as: :between
+<% elsif attr[0].include?("yes$") -%>
+  = f.input :<%=attr[0].chomp('yes$')%>, as: :yesno
 <% else -%>
   = f.input :<%=attr[0]%>
 <% end -%>

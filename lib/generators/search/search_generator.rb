@@ -17,6 +17,10 @@ class SearchGenerator < Rails::Generators::Base
     template  'en.yml', "config/locales/models/#{model_name.underscore}/en.yml"
   end
   
+  def generate_spec_file
+    template  'searcher_spec.rb', "spec/searchers/#{model_name.underscore}_searcher_spec.rb"
+  end
+  
   def inject_searcher_params
     inject_into_file("app/controllers/#{model_name.pluralize.underscore}_controller.rb", :after => 'private') do 
       searcher_params_content
@@ -62,6 +66,9 @@ class SearchGenerator < Rails::Generators::Base
         f = f+":#{k}, "
       elsif k.include?("approval_status@")
         k = k.chomp("@")
+        f = f+":#{k}, "
+      elsif k.include?("yes$")
+        k = k.chomp("yes$")
         f = f+":#{k}, "
       else
         f = f+":#{k}, "
