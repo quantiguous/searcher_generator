@@ -17,6 +17,7 @@ Example:
         (iii) e$  -  it will create enum type attribute
         (iv) approval_status@ - it will create approval_status attribute
         (v) page@ - it will create page attribute
+        (vi) yes$ - it will create yes no input type
      
      Things to do after running this command 
         1- changes in routes file 

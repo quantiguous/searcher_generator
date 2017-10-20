@@ -12,6 +12,8 @@ en:
         <%=attr[0].chomp('bet$')%>:  "<%= attr[1]%>"
 <% elsif attr[0].include?("bet1") -%>
         <%=attr[0].chomp('bet1')%>:  "<%= attr[1]%>"
+<% elsif attr[0].include?("yes$") -%>
+        <%=attr[0].chomp('yes$')%>:  "<%= attr[1]%>"
 <% else -%>
         <%=attr[0]%>:  "<%= attr[1]%>"
 <% end -%>
