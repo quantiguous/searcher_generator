@@ -23,6 +23,12 @@ describe <%=model_name%>Searcher do
       <%=small_model_name%> = Factory(:<%=small_model_name%>, :<%=attr[0]%> => 'STRING1')
       <%=model_name%>Searcher.new({<%= attr[0]%>: 'STRING1'}).paginate.should == [<%=small_model_name%>]
       <%=model_name%>Searcher.new({<%= attr[0]%>: 'STRING2'}).paginate.should == []
+      
+<% elsif attr[0].include?('yes$')-%>
+<% attr[0] = attr[0].chomp('yes$')-%>
+      <%=small_model_name%> = Factory(:<%=small_model_name%>, :<%=attr[0]%> => 'Y')
+      <%=model_name%>Searcher.new({<%= attr[0]%>: 'Y'}).paginate.should == [<%=small_model_name%>]
+      <%=model_name%>Searcher.new({<%= attr[0]%>: 'N'}).paginate.should == []
 
 <% elsif attr[0].include?('page@') or attr[0].include?('humanize_model@')-%>
 <% elsif attr[0].include?('approval_status@')-%>
